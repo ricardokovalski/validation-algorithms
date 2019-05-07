@@ -6,7 +6,7 @@ if (strlen($cpf) != 11) {
     return false;
 }
 
-if (preg_match('/(\d)\1{10}/', $cpf)) {
+if (preg_match('/^(\d)\1{10}$/', $cpf)) {
     return false;
 }
 
