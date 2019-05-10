@@ -1,12 +1,12 @@
 <?php
 
-$cnpj = str_pad(preg_replace("/[^0-9]/", "", $cnpj), 14, '0', STR_PAD_LEFT);
+$cnpj = str_pad(preg_replace("/[^0-9]/", "", $string), 14, '0', STR_PAD_LEFT);
 	
 if (strlen($cnpj) != 14) {
     return false;
 }
 
-if (preg_match('/^(\d)\1{13}$/', $cnpj) {
+if (preg_match('/^(\d)\1{13}$/', $cnpj)) {
     return false;
 }
 	
