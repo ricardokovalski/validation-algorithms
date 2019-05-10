@@ -10,23 +10,16 @@ if (preg_match('/^(\d)\1{13}$/', $cnpj)) {
     return false;
 }
 	
-$j = 5;
-$k = 6;
-$soma1 = "";
-$soma2 = "";
+$soma1 = 0;
+$soma2 = 0;
 
-for ($i = 0; $i < 13; $i++) {
+for ($i = 0, $j = 5, $k = 6; $i < 13; $i++, $j--, $k--) {
     $j = $j == 1 ? 9 : $j;
     $k = $k == 1 ? 9 : $k;
-
     $soma2 += ($cnpj{$i} * $k);
-
     if ($i < 12) {
         $soma1 += ($cnpj{$i} * $j);
     }
-
-    $k--;
-    $j--;
 }
 
 $digito1 = $soma1 % 11 < 2 ? 0 : 11 - $soma1 % 11;
